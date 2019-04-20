@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/images/panel.png" type="Texture" id=1]
+[ext_resource path="res://scripts/button_level.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/font.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/images/panel_locked.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = ExtResource( 3 )
+
+[node name="ButtonLevel" type="TextureButton"]
+margin_right = 300.0
+margin_bottom = 300.0
+rect_pivot_offset = Vector2( 150, 150 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+texture_normal = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Number" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 224.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Gems" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -90.0
+custom_fonts/font = SubResource( 2 )
+text = "GEMS"
+align = 1
+valign = 1
+
+[node name="Locked" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+centered = false
+
+[connection signal="button_down" from="." to="." method="_on_Button_down"]
+[connection signal="button_up" from="." to="." method="_on_Button_up"]
+[connection signal="pressed" from="." to="." method="_on_Button_pressed"]

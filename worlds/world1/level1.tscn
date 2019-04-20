@@ -1,0 +1,341 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://environment/background/background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://environment/background/parallax_background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://environment/plants/plant1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://environment/plants/plant2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://environment/plants/plant3.tscn" type="PackedScene" id=5]
+[ext_resource path="res://environment/plants/plant4.tscn" type="PackedScene" id=6]
+[ext_resource path="res://environment/plants/bush1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://environment/enemies/rock.tscn" type="PackedScene" id=8]
+[ext_resource path="res://environment/enemies/enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://environment/enemies/spike.tscn" type="PackedScene" id=10]
+[ext_resource path="res://environment/enemies/spike_spawner.tscn" type="PackedScene" id=11]
+[ext_resource path="res://environment/obstacles/bouncy_platform.tscn" type="PackedScene" id=12]
+[ext_resource path="res://environment/obstacles/wall.tscn" type="PackedScene" id=13]
+[ext_resource path="res://environment/obstacles/pillar.tscn" type="PackedScene" id=14]
+[ext_resource path="res://environment/platforms/platform.tscn" type="PackedScene" id=15]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=16]
+[ext_resource path="res://player/camera.tscn" type="PackedScene" id=17]
+[ext_resource path="res://items/finalpoint.tscn" type="PackedScene" id=18]
+[ext_resource path="res://environment/terrains/terrain.tscn" type="PackedScene" id=19]
+[ext_resource path="res://environment/terrains/terrain_border.tscn" type="PackedScene" id=20]
+
+[node name="Level" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource( 1 )]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
+
+[node name="Plants" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="Plant1" parent="Plants" instance=ExtResource( 3 )]
+position = Vector2( 1040, 777 )
+scale = Vector2( 0.857527, 0.857527 )
+z_index = -6
+
+[node name="Plant5" parent="Plants" instance=ExtResource( 3 )]
+position = Vector2( 6940, 690 )
+scale = Vector2( 1.20027, 1.20027 )
+z_index = -6
+
+[node name="Plant2" parent="Plants" instance=ExtResource( 4 )]
+position = Vector2( 4390, 760 )
+z_index = -6
+
+[node name="Plant6" parent="Plants" instance=ExtResource( 4 )]
+position = Vector2( 9740, 671.5 )
+scale = Vector2( 1, 1.44771 )
+z_index = -6
+
+[node name="Plant3" parent="Plants" instance=ExtResource( 5 )]
+position = Vector2( 2040, 640 )
+z_index = -6
+
+[node name="Plant4" parent="Plants" instance=ExtResource( 6 )]
+position = Vector2( 5490, 740 )
+z_index = -6
+
+[node name="Bush1" parent="Plants" instance=ExtResource( 7 )]
+position = Vector2( 8100, 907 )
+z_index = -6
+
+[node name="Bush2" parent="Plants" instance=ExtResource( 7 )]
+position = Vector2( 8476.17, 785 )
+scale = Vector2( 1.11667, 1.11667 )
+z_index = -6
+
+[node name="Bush3" parent="Plants" instance=ExtResource( 7 )]
+position = Vector2( 8840, 930 )
+scale = Vector2( 0.841667, 0.841667 )
+z_index = -6
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Rock2" parent="Enemies" instance=ExtResource( 8 )]
+position = Vector2( 14060, 790 )
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 5660, 828.2 )
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 9 )]
+position = Vector2( 18180, 828.2 )
+
+[node name="Spikes" type="Node" parent="."]
+
+[node name="Spike" parent="Spikes" instance=ExtResource( 10 )]
+position = Vector2( 1590, 830 )
+
+[node name="Spike2" parent="Spikes" instance=ExtResource( 10 )]
+position = Vector2( 3420, 1000 )
+
+[node name="Spike3" parent="Spikes" instance=ExtResource( 10 )]
+position = Vector2( 3480, 1000 )
+
+[node name="Spike4" parent="Spikes" instance=ExtResource( 10 )]
+position = Vector2( 3540, 1000 )
+
+[node name="Spike5" parent="Spikes" instance=ExtResource( 10 )]
+position = Vector2( 3600, 1000 )
+
+[node name="SpikeSpawner" parent="Spikes" instance=ExtResource( 11 )]
+position = Vector2( 2360, 888 )
+velocity = 500.0
+
+[node name="SpikeSpawner2" parent="Spikes" instance=ExtResource( 11 )]
+position = Vector2( 10970, 890 )
+numberOfSpikes = 7
+
+[node name="SpikeSpawner3" parent="Spikes" instance=ExtResource( 11 )]
+position = Vector2( 21490, 707 )
+numberOfSpikes = 12
+velocity = 500.0
+
+[node name="Obstacles" type="Node" parent="."]
+
+[node name="BouncyMushroom" parent="Obstacles" instance=ExtResource( 12 )]
+position = Vector2( 6070, 880 )
+
+[node name="BouncyMushroom3" parent="Obstacles" instance=ExtResource( 12 )]
+position = Vector2( 6690, 880 )
+
+[node name="BouncyMushroom2" parent="Obstacles" instance=ExtResource( 12 )]
+position = Vector2( 4170, 880 )
+
+[node name="Wall3" parent="Obstacles" instance=ExtResource( 13 )]
+position = Vector2( 7785.44, 248.763 )
+
+[node name="Wall4" parent="Obstacles" instance=ExtResource( 13 )]
+position = Vector2( 8237.66, 524.691 )
+
+[node name="Pillar" parent="Obstacles" instance=ExtResource( 14 )]
+position = Vector2( 6640, 120 )
+
+[node name="Pillar3" parent="Obstacles" instance=ExtResource( 14 )]
+position = Vector2( 9740, 590 )
+rotation = 1.74516
+canFall = false
+
+[node name="Pillar2" parent="Obstacles" instance=ExtResource( 14 )]
+position = Vector2( 14310, 896 )
+
+[node name="Pillar4" parent="Obstacles" instance=ExtResource( 14 )]
+position = Vector2( 16040, 760 )
+
+[node name="Pillar5" parent="Obstacles" instance=ExtResource( 14 )]
+position = Vector2( 18470, 896 )
+
+[node name="Platforms" type="Node" parent="."]
+
+[node name="platform" parent="Platforms" instance=ExtResource( 15 )]
+position = Vector2( 9160, 680 )
+
+[node name="platform16" parent="Platforms" instance=ExtResource( 15 )]
+position = Vector2( 10490, 760 )
+
+[node name="platform3" parent="Platforms" instance=ExtResource( 15 )]
+position = Vector2( 4320, 510 )
+
+[node name="platform4" parent="Platforms" instance=ExtResource( 15 )]
+position = Vector2( 4720, 510 )
+
+[node name="platform5" parent="Platforms" instance=ExtResource( 15 )]
+position = Vector2( 5270, 400 )
+rotation = -0.177637
+
+[node name="platform6" parent="Platforms" instance=ExtResource( 15 )]
+position = Vector2( 18880, 850 )
+rotation = -0.00118996
+
+[node name="platform14" parent="Platforms" instance=ExtResource( 15 )]
+position = Vector2( 16780, 880 )
+rotation = -0.00118996
+
+[node name="platform11" parent="Platforms" instance=ExtResource( 15 )]
+position = Vector2( 19500, 780 )
+rotation = -0.00118996
+
+[node name="platform12" parent="Platforms" instance=ExtResource( 15 )]
+position = Vector2( 19900, 780 )
+rotation = -0.00118996
+
+[node name="platform13" parent="Platforms" instance=ExtResource( 15 )]
+position = Vector2( 20560, 723.3 )
+rotation = -0.00118996
+
+[node name="platform15" parent="Platforms" instance=ExtResource( 15 )]
+position = Vector2( 24140, 639.25 )
+rotation = -0.00118996
+
+[node name="platform7" parent="Platforms" instance=ExtResource( 15 )]
+position = Vector2( 5670, 330 )
+rotation = -0.216196
+
+[node name="platform9" parent="Platforms" instance=ExtResource( 15 )]
+position = Vector2( 6060, 250 )
+rotation = -0.216196
+
+[node name="platform10" parent="Platforms" instance=ExtResource( 15 )]
+position = Vector2( 6450, 180 )
+rotation = -0.216196
+
+[node name="platform8" parent="Platforms" instance=ExtResource( 15 )]
+position = Vector2( 7340, 10 )
+rotation = -0.0476641
+
+[node name="platform2" parent="Platforms" instance=ExtResource( 15 )]
+position = Vector2( 9550, 640 )
+rotation = -0.229955
+
+[node name="Player" parent="." instance=ExtResource( 16 )]
+editor/display_folded = true
+position = Vector2( 670, 777 )
+
+[node name="Camera" parent="Player" instance=ExtResource( 17 )]
+
+[node name="FinalPoint" parent="." instance=ExtResource( 18 )]
+position = Vector2( 26200, -240 )
+
+[node name="Terrains" type="Node" parent="."]
+
+[node name="Terrain" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 400, 1090 )
+
+[node name="Terrain2" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 1200, 1090 )
+
+[node name="Terrain3" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 2000, 1090 )
+
+[node name="Terrain4" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 2800, 1090 )
+
+[node name="Terrain8" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 3541, 1260 )
+
+[node name="Border" parent="Terrains" instance=ExtResource( 20 )]
+position = Vector2( 3300, 1090 )
+
+[node name="Border2" parent="Terrains" instance=ExtResource( 20 )]
+position = Vector2( 3720, 1090 )
+scale = Vector2( -1, 1 )
+
+[node name="Border3" parent="Terrains" instance=ExtResource( 20 )]
+position = Vector2( 12720, 1090 )
+
+[node name="Border4" parent="Terrains" instance=ExtResource( 20 )]
+position = Vector2( 13210, 1090 )
+scale = Vector2( -1, 1 )
+
+[node name="Border6" parent="Terrains" instance=ExtResource( 20 )]
+position = Vector2( 17370, 1090 )
+scale = Vector2( -1, 1 )
+
+[node name="Border10" parent="Terrains" instance=ExtResource( 20 )]
+position = Vector2( 14940, 960 )
+scale = Vector2( -1, 1 )
+
+[node name="Border9" parent="Terrains" instance=ExtResource( 20 )]
+position = Vector2( 21050, 910 )
+scale = Vector2( -1, 1 )
+
+[node name="Border12" parent="Terrains" instance=ExtResource( 20 )]
+position = Vector2( 24630, 920 )
+scale = Vector2( -1, 1 )
+
+[node name="Border5" parent="Terrains" instance=ExtResource( 20 )]
+position = Vector2( 14210, 1090 )
+
+[node name="Border7" parent="Terrains" instance=ExtResource( 20 )]
+position = Vector2( 18370, 1090 )
+
+[node name="Border11" parent="Terrains" instance=ExtResource( 20 )]
+position = Vector2( 15940, 960 )
+
+[node name="Border8" parent="Terrains" instance=ExtResource( 20 )]
+position = Vector2( 23650, 910 )
+
+[node name="Terrain5" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 4220, 1090 )
+
+[node name="Terrain6" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 5020, 1090 )
+
+[node name="Terrain7" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 5820, 1090 )
+
+[node name="Terrain9" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 6620, 1090 )
+
+[node name="Terrain10" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 7420, 1090 )
+
+[node name="Terrain11" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 8220, 1090 )
+
+[node name="Terrain12" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 9020, 1090 )
+
+[node name="Terrain13" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 9820, 1090 )
+
+[node name="Terrain14" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 10620, 1090 )
+
+[node name="Terrain15" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 11420, 1090 )
+
+[node name="Terrain16" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 12220, 1090 )
+
+[node name="Terrain17" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 13710, 1090 )
+
+[node name="Terrain18" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 17870, 1090 )
+
+[node name="Terrain20" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 15440, 960 )
+
+[node name="Terrain19" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 21550, 910 )
+
+[node name="Terrain22" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 22350, 910 )
+
+[node name="Terrain23" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 23150, 910 )
+
+[node name="Terrain21" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 25130, 920 )
+
+[node name="Terrain24" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 25930, 920 )
+
+[node name="Terrain27" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 26730, 920 )
+
+[node name="Terrain28" parent="Terrains" instance=ExtResource( 19 )]
+position = Vector2( 27530, 920 )
+

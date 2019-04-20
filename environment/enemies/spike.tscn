@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/spike.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/spike.png" type="Texture" id=2]
+
+[node name="Spike" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 6, -68, 20, 61, -22, 60 )
+

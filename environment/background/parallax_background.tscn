@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/images/bushes.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/mushroom1.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/mushroom2.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/mushroom3.png" type="Texture" id=4]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+layer = -9
+
+[node name="Bushes" type="ParallaxLayer" parent="."]
+editor/display_folded = true
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="Bushes"]
+position = Vector2( -150, 210 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="Bushes"]
+position = Vector2( 1440, 430.161 )
+scale = Vector2( 0.749817, 0.749817 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="Bushes"]
+position = Vector2( 2230, 180 )
+scale = Vector2( 1.03409, 1.03409 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Mushrooms" type="ParallaxLayer" parent="."]
+editor/display_folded = true
+motion_scale = Vector2( 0.6, 1 )
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="Mushrooms"]
+position = Vector2( 360, 1160 )
+rotation = -0.109702
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -200, -740 )
+
+[node name="Sprite8" type="Sprite" parent="Mushrooms"]
+position = Vector2( 3680, 1200 )
+rotation = 0.235256
+scale = Vector2( 1.76541, 1.76541 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -200, -740 )
+
+[node name="Sprite6" type="Sprite" parent="Mushrooms"]
+position = Vector2( 3388.26, 1157.99 )
+rotation = -0.109702
+scale = Vector2( 1.09184, 1.09184 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -200, -740 )
+
+[node name="Sprite2" type="Sprite" parent="Mushrooms"]
+position = Vector2( 770.714, 1110 )
+scale = Vector2( 1.07143, 1.07143 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( -150, -840 )
+
+[node name="Sprite7" type="Sprite" parent="Mushrooms"]
+position = Vector2( 2790, 1240 )
+scale = Vector2( 0.736395, 0.736395 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( -150, -840 )
+
+[node name="Sprite4" type="Sprite" parent="Mushrooms"]
+position = Vector2( 2340, 1200 )
+rotation = 0.194248
+scale = Vector2( 1.74308, 1.74308 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( -150, -840 )
+
+[node name="Sprite3" type="Sprite" parent="Mushrooms"]
+position = Vector2( 1850, 1120 )
+texture = ExtResource( 4 )
+centered = false
+offset = Vector2( -60, -810 )
+
+[node name="Sprite5" type="Sprite" parent="Mushrooms"]
+position = Vector2( 1350, 1150 )
+rotation = -0.140438
+scale = Vector2( 2.11111, 2.11111 )
+texture = ExtResource( 4 )
+centered = false
+offset = Vector2( -60, -810 )
+

@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/rock.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/rock.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 100.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 100.0
+
+[node name="Rock" type="KinematicBody2D"]
+collision_layer = 128
+collision_mask = 48
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Area" type="Area2D" parent="."]
+editor/display_folded = true
+collision_layer = 256
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Area"]
+shape = SubResource( 2 )
+
+[node name="Visibility" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -1.52588e-005, 0 )
+scale = Vector2( 22, 11 )
+

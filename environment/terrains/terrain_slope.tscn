@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/terrain.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/grass.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/terrain_slope.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/grass_black.png" type="Texture" id=4]
+
+[node name="Slope" type="StaticBody2D"]
+z_index = 1
+collision_layer = 16
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -400, -130, 400, -270, 400, 130, -400, 270 )
+
+[node name="GrassTall" type="Sprite" parent="."]
+position = Vector2( -6, -230 )
+rotation = -0.165806
+z_index = -1
+z_as_relative = false
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="Grass" type="Sprite" parent="."]
+position = Vector2( 0, -210 )
+rotation = -0.166427
+texture = ExtResource( 4 )
+

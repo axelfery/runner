@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/spike_spawner.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 300, 350 )
+
+[node name="SpikeSpawner" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Area"]
+shape = SubResource( 1 )
+
+[node name="Limit" type="ColorRect" parent="."]
+margin_left = -10.0
+margin_top = -130.0
+margin_right = 10.0
+margin_bottom = 110.0
+color = Color( 1, 0.262745, 0.231373, 1 )
+
