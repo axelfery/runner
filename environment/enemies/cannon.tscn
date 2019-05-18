@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/cannon.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/cannon.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 40 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1440, 500 )
 
 [node name="Cannon" type="StaticBody2D"]
 z_index = 1
@@ -19,7 +22,13 @@ texture = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
 
-[node name="Visibility" type="VisibilityNotifier2D" parent="."]
-scale = Vector2( 6, 4 )
+[node name="Trigger" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Trigger"]
+position = Vector2( 560, 0 )
+shape = SubResource( 2 )
 

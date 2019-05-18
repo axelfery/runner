@@ -3,10 +3,10 @@
 [ext_resource path="res://scripts/terrain.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/grass.png" type="Texture" id=2]
 [ext_resource path="res://assets/images/terrain.png" type="Texture" id=3]
-[ext_resource path="res://assets/images/grass_black.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/weed.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 400, 200 )
+extents = Vector2( 400, 300 )
 
 [node name="Terrain" type="StaticBody2D"]
 z_index = 1
@@ -21,7 +21,8 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="GrassTall" type="Sprite" parent="."]
-position = Vector2( 0, -230 )
+visible = false
+position = Vector2( 0, -330 )
 z_index = -1
 z_as_relative = false
 texture = ExtResource( 2 )
@@ -30,6 +31,6 @@ texture = ExtResource( 2 )
 texture = ExtResource( 3 )
 
 [node name="Grass" type="Sprite" parent="."]
-position = Vector2( 0, -210 )
+position = Vector2( 0, -310 )
 texture = ExtResource( 4 )
 

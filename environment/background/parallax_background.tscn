@@ -9,7 +9,7 @@
 layer = -9
 
 [node name="Bushes" type="ParallaxLayer" parent="."]
-editor/display_folded = true
+position = Vector2( 9.80847, 215.785 )
 motion_scale = Vector2( 0.4, 1 )
 motion_mirroring = Vector2( 3840, 0 )
 
@@ -19,19 +19,20 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="Sprite2" type="Sprite" parent="Bushes"]
-position = Vector2( 1440, 430.161 )
+position = Vector2( 1320, 384 )
 scale = Vector2( 0.749817, 0.749817 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="Sprite3" type="Sprite" parent="Bushes"]
-position = Vector2( 2230, 180 )
+position = Vector2( 2216, 194 )
 scale = Vector2( 1.03409, 1.03409 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="Mushrooms" type="ParallaxLayer" parent="."]
 editor/display_folded = true
+visible = false
 motion_scale = Vector2( 0.6, 1 )
 motion_mirroring = Vector2( 3840, 0 )
 

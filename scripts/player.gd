@@ -12,8 +12,8 @@ const GRAVITY = 100
 const JUMPFORCE = -1700
 const RUNSPEED = 600
 const AIRFRICTION = 0.05
-const WALLFRICTION = 0.2
-const BOUNCEFORCE = -2500
+const WALLFRICTION = 0.4
+const BOUNCEFORCE = -2600
 
 var jumped = false
 
@@ -100,7 +100,11 @@ class StateIdle:
 		
 	func input(event: InputEvent):
 		if(event.is_action_pressed("tap_right")):
-			player.setState(player.States.RUNNING)
+			if(player.front.is_colliding()):
+				player.setState(player.States.JUMPING)
+				player.direction = 1
+			else:
+				player.setState(player.States.RUNNING)
 		if(event.is_action_pressed("ui_home")):
 			player.get_tree().change_scene("res://stages/play.tscn")
 		
@@ -110,6 +114,9 @@ class StateIdle:
 class StateRunning:
 	
 	var player: KinematicBody2D
+	var jumpTimeOffset
+	var timeStarted
+	const TIME_OFFSET = 0.08
 	
 	func _init(player: KinematicBody2D):
 		self.player = player
@@ -118,19 +125,26 @@ class StateRunning:
 		self.player.direction = 1
 		self.player.anim.play("running")
 		self.player.jumped = false
+		jumpTimeOffset = 0
+		timeStarted = false
 	
 	func update(delta):
+		if(timeStarted): jumpTimeOffset += delta
 		player.velocity.x = player.direction * player.speed
 		player.velocity.y += player.GRAVITY
 		player.move_and_slide(player.velocity, player.floorNormal)
 		if(player.is_on_floor()):
 			player.velocity.y = 0
 		if(not player.feet.is_colliding()):
-			player.setState(player.States.FALLING)
+			timeStarted = true
+			if(jumpTimeOffset >= TIME_OFFSET): player.setState(player.States.FALLING)
+		if(player.front.is_colliding()):
+			player.setState(player.States.IDLE)
 		
 	func input(event: InputEvent):
 		if(event.is_action_pressed("tap_right")):
-			if(player.feet.is_colliding()):
+#			timeStarted = true
+			if(player.feet.is_colliding() or jumpTimeOffset <= TIME_OFFSET):
 				player.setState(player.States.JUMPING)
 		if(event.is_action_pressed("tap_left")):
 			if(not player.feet.is_colliding()):
@@ -167,7 +181,8 @@ class StateJumping:
 	func input(event: InputEvent):
 		if(event.is_action_pressed("tap_right")):
 			if(player.front.is_colliding()):
-				player.setState(player.States.WALLJUMP)
+				if(player.front.get_collider().is_in_group(assets.groupWalls)):
+					player.setState(player.States.WALLJUMP)
 			else:
 				player.setState(player.States.DOUBLEJUMP)
 		if(event.is_action_pressed("tap_left")):
@@ -201,7 +216,8 @@ class StateDoubleJump:
 	func input(event: InputEvent):
 		if(event.is_action_pressed("tap_right")):
 			if(player.front.is_colliding()):
-				player.setState(player.States.WALLJUMP)
+				if(player.front.get_collider().is_in_group(assets.groupWalls)):
+					player.setState(player.States.WALLJUMP)
 		if(event.is_action_pressed("tap_left")):
 			player.setState(player.States.GLIDING)
 		
@@ -328,7 +344,8 @@ class StateFalling:
 	func input(event: InputEvent):
 		if(event.is_action_pressed("tap_right")):
 			if(player.front.is_colliding()):
-				player.setState(player.States.WALLJUMP)
+				if(player.front.get_collider().is_in_group(assets.groupWalls)):
+					player.setState(player.States.WALLJUMP)
 			elif(player.jumped):
 				player.setState(player.States.DOUBLEJUMP)
 		if(event.is_action_pressed("tap_left")):
@@ -381,7 +398,8 @@ class StateBounce:
 	func input(event: InputEvent):
 		if(event.is_action_pressed("tap_right")):
 			if(player.front.is_colliding()):
-				player.setState(player.States.WALLJUMP)
+				if(player.front.get_collider().is_in_group(assets.groupWalls)):
+					player.setState(player.States.WALLJUMP)
 			elif(player.jumped):
 				player.setState(player.States.DOUBLEJUMP)
 		if(event.is_action_pressed("tap_left")):

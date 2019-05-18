@@ -4,17 +4,20 @@ var ball = load("res://environment/enemies/cannonball.tscn")
 
 func _ready():
 	$Timer.connect("timeout", self, "shoot")
-	$Visibility.connect("screen_entered", self, "onScreenEntered")
-	$Visibility.connect("screen_exited", self, "onScreenExited")
+	$Trigger.connect("body_entered", self, "onBodyTrigger")
+	$Trigger.connect("body_exited", self, "onBodyTriggerExit")
 
 func shoot():
 	var newBall = ball.instance()
 	newBall.position = global_position
-	get_tree().current_scene.add_child(newBall)
-	$Timer.start(2)
+	get_tree().current_scene.call_deferred("add_child", newBall)
 	
-func onScreenEntered():
-	shoot()
+func onBodyTrigger(body: KinematicBody2D)->void:
+	if(body.is_in_group(assets.groupPlayer)):
+		$Trigger.disconnect("body_entered", self, "onBodyTrigger")
+		shoot()
+		$Timer.start(2.0)
 	
-func onScreenExited():
-	queue_free()
+func onBodyTriggerExit(body: KinematicBody2D)->void:
+	if(body.is_in_group(assets.groupPlayer)):
+		queue_free()

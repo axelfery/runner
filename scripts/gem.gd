@@ -7,5 +7,4 @@ func _ready():
 	
 func onBodyEntered(body: KinematicBody2D) ->void:
 	if(body.is_in_group(assets.groupPlayer)):
-		app.gem += AMOUNT
 		queue_free()

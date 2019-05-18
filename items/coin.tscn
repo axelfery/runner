@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/gem.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/coin.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 30.0
+
+[node name="Coin" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+

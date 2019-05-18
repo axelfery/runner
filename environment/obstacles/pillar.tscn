@@ -19,17 +19,11 @@ position = Vector2( -10, 20 )
 texture = ExtResource( 2 )
 offset = Vector2( 40, -310 )
 
-[node name="VisibilityNotifier" type="VisibilityNotifier2D" parent="."]
-visible = false
-position = Vector2( 19, -325 )
-scale = Vector2( 2.9, 33.5 )
-
-[node name="Area" type="Area2D" parent="."]
+[node name="Trigger" type="Area2D" parent="."]
 collision_layer = 64
 collision_mask = 0
 
-[node name="Collision" type="CollisionShape2D" parent="Area"]
-visible = false
+[node name="Collision" type="CollisionShape2D" parent="Trigger"]
 position = Vector2( 0, -270 )
 shape = SubResource( 1 )
 

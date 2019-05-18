@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grass_black_mini.png-9b82e8019e9f756b5bf8ab05f63aa1ef.stex"
+path="res://.import/weed_mini.png-48fedc9465b207fb2dcd363dd487625e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/grass_black_mini.png"
-dest_files=[ "res://.import/grass_black_mini.png-9b82e8019e9f756b5bf8ab05f63aa1ef.stex" ]
+source_file="res://assets/images/weed_mini.png"
+dest_files=[ "res://.import/weed_mini.png-48fedc9465b207fb2dcd363dd487625e.stex" ]
 
 [params]
 

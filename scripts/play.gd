@@ -40,7 +40,7 @@ func _on_ButtonResume_pressed():
 
 func _on_ButtonHome_pressed():
 	get_tree().paused = false
-	get_tree().change_scene("res://gui/menu_level.tscn")
+	get_tree().change_scene("res://stages/menu.tscn")
 
 func _on_ButtonRestart_pressed():
 	get_tree().paused = false
