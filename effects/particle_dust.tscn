@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/images/particles/dust.png" type="Texture" id=1]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0.214286 ), 0.0, 0.0, 0, 0, Vector2( 0.5, 1 ), 0.0313767, 0.0313767, 0, 0, Vector2( 1, 0.650098 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.415205, 1 )
+colors = PoolColorArray( 0.744397, 0.744397, 0.744397, 0, 0.744397, 0.744397, 0.744397, 0.533333, 0.744397, 0.744397, 0.744397, 0 )
+
+[node name="Dust" type="CPUParticles2D"]
+position = Vector2( 0, -14 )
+emitting = false
+amount = 12
+lifetime = 1.7
+speed_scale = 2.0
+lifetime_randomness = 0.6
+texture = ExtResource( 1 )
+gravity = Vector2( -98, 0 )
+initial_velocity = 12.0
+angular_velocity = 360.0
+angular_velocity_random = 1.0
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )

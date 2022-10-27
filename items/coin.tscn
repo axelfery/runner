@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scripts/gem.gd" type="Script" id=1]
+[ext_resource path="res://scripts/coin.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/coin.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]

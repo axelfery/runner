@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/level_objective.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/font.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 300, 1500 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+font_data = ExtResource( 2 )
+
+[node name="LevelObjective" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -376.0
+margin_top = 262.0
+margin_right = 418.0
+margin_bottom = 397.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.34902, 0.905882, 0.290196, 1 )
+custom_colors/font_color_shadow = Color( 0.0431373, 0.101961, 0.0156863, 1 )
+text = "LEVEL COMPLETED"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

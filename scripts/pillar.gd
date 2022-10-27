@@ -1,7 +1,9 @@
-extends StaticBody2D
+extends KinematicBody2D
 
 export(bool) var falls = true
-var speedRotation = 1
+var speedRotation = 1.1
+const CAMERA_SHAKE_DURATION = 0.3
+const CAMERA_SHAKE_INTENSITY = 20.0
 
 func _ready():
 	set_physics_process(false)
@@ -9,12 +11,14 @@ func _ready():
 	$Trigger.connect("body_entered", self, "onBodyTrigger")
 
 func onBodyTrigger(body: KinematicBody2D)->void:
-	if(body.is_in_group(assets.groupPlayer)):
+	if(body.is_in_group(assets.GROUP_CHARACTERS)):
 		$Trigger.disconnect("body_entered", self, "onBodyTrigger")
 		set_physics_process(true)
 
 func _physics_process(delta):
-	speedRotation += 0.06
-	rotate(speedRotation * delta)
-	if($Top.is_colliding() or $Middle.is_colliding()):
+	if($Top.is_colliding() or $Middle.is_colliding() or $Bottom.is_colliding()):
 		set_physics_process(false)
+		global.emit_signal("cameraShake", CAMERA_SHAKE_INTENSITY, CAMERA_SHAKE_DURATION)
+		return
+	speedRotation += 0.1
+	rotate(speedRotation * delta)

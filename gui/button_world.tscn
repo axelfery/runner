@@ -17,6 +17,9 @@ margin_bottom = 300.0
 rect_pivot_offset = Vector2( 150, 150 )
 texture_normal = ExtResource( 1 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Name" type="Label" parent="."]
 anchor_right = 1.0
@@ -39,7 +42,6 @@ valign = 1
 [node name="Locked" type="Sprite" parent="."]
 texture = ExtResource( 4 )
 centered = false
-
 [connection signal="button_down" from="." to="." method="_on_Button_down"]
 [connection signal="button_up" from="." to="." method="_on_Button_up"]
 [connection signal="pressed" from="." to="." method="_on_Button_pressed"]

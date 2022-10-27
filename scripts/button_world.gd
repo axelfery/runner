@@ -1,19 +1,20 @@
 extends TextureButton
 
-export(int) var index = 0
+export(int, 0, 3) var index = 0
 export var label = ""
 var unlocked = false
 
 func _ready():
 	$Name.text = label
-	unlocked = world.worlds[index].unlocked
+	if(index >= global.worlds.size()): return
+	unlocked = global.worlds[index].unlocked
 	if(unlocked):
 		$Locked.queue_free()
 
 func _on_Button_pressed():
 	if(unlocked):
-		world.selectedWorld = index
-		get_tree().change_scene("res://gui/menu_level.tscn")
+		global.selectedWorld = index
+		get_tree().change_scene(assets.MENU_LEVEL)
 
 func _on_Button_down():
 	rect_scale = Vector2(0.9, 0.9)

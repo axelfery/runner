@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/spike_spawner.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 500, 800 )
+
+[node name="SpikeSpawner" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Trigger" type="Area2D" parent="."]
+visible = false
+collision_layer = 512
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Trigger"]
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Holder" type="Node2D" parent="."]
+[connection signal="timeout" from="Timer" to="." method="onTimeout"]

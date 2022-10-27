@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://gui/button_level.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/images/gui/back_normal.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends TextureButton
+
+func _pressed():
+	get_tree().change_scene(assets.MENU_WORLD)
+
+func _notification(what):
+	if(what == MainLoop.NOTIFICATION_WM_GO_BACK_REQUEST):
+		_pressed()
+	elif(what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST):
+		pass
+"
+
+[node name="Levels" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 100.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_top = 72.0
+margin_right = 1920.0
+margin_bottom = 207.0
+custom_fonts/font = SubResource( 1 )
+text = "LEVELS"
+align = 1
+valign = 1
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 257.0
+margin_right = 1920.0
+margin_bottom = 557.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="ButtonLevel" parent="VBoxContainer/HBoxContainer1" instance=ExtResource( 2 )]
+margin_left = 110.0
+margin_right = 410.0
+
+[node name="ButtonLevel2" parent="VBoxContainer/HBoxContainer1" instance=ExtResource( 2 )]
+margin_left = 460.0
+margin_right = 760.0
+index = 1
+
+[node name="ButtonLevel3" parent="VBoxContainer/HBoxContainer1" instance=ExtResource( 2 )]
+margin_left = 810.0
+margin_right = 1110.0
+index = 2
+
+[node name="ButtonLevel4" parent="VBoxContainer/HBoxContainer1" instance=ExtResource( 2 )]
+margin_left = 1160.0
+margin_right = 1460.0
+index = 3
+
+[node name="ButtonLevel5" parent="VBoxContainer/HBoxContainer1" instance=ExtResource( 2 )]
+margin_left = 1510.0
+margin_right = 1810.0
+index = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 607.0
+margin_right = 1920.0
+margin_bottom = 907.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="ButtonLevel6" parent="VBoxContainer/HBoxContainer2" instance=ExtResource( 2 )]
+margin_left = 110.0
+margin_right = 410.0
+index = 5
+
+[node name="ButtonLevel7" parent="VBoxContainer/HBoxContainer2" instance=ExtResource( 2 )]
+margin_left = 460.0
+margin_right = 760.0
+index = 6
+
+[node name="ButtonLevel8" parent="VBoxContainer/HBoxContainer2" instance=ExtResource( 2 )]
+margin_left = 810.0
+margin_right = 1110.0
+index = 7
+
+[node name="ButtonLevel9" parent="VBoxContainer/HBoxContainer2" instance=ExtResource( 2 )]
+margin_left = 1160.0
+margin_right = 1460.0
+index = 8
+
+[node name="ButtonLevel10" parent="VBoxContainer/HBoxContainer2" instance=ExtResource( 2 )]
+margin_left = 1510.0
+margin_right = 1810.0
+index = 9
+
+[node name="Back" type="TextureButton" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 3 )
+script = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

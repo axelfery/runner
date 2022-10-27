@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/spike.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/w1/spike.png" type="Texture" id=2]
+
+[node name="Spike" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 1.49738, -180.014, 20.3074, -119.982, 18.1863, 7.94223, -18.62, 7.94223, -20.5144, -115.98 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.299934, 4.6784 )
+texture = ExtResource( 2 )
+offset = Vector2( -0.299934, -94.6784 )

@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/enemy.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/w1/snail.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 78, 56 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "strech"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("./Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0.88 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 2000, 1000 )
+
+[node name="Enemy" type="KinematicBody2D"]
+collision_layer = 128
+collision_mask = 1072
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 0
+
+[node name="Collision" type="CollisionPolygon2D" parent="Area"]
+polygon = PoolVector2Array( -74, 11, -41, -33, 21, -59, 67, -35, 80, 14, 62, 54, -57, 54, -73, 36 )
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/strech = SubResource( 2 )
+
+[node name="Bottom" type="RayCast2D" parent="."]
+position = Vector2( -60, 45 )
+enabled = true
+cast_to = Vector2( 0, 40 )
+collision_mask = 1072
+
+[node name="Trigger" type="Area2D" parent="."]
+collision_layer = 512
+collision_mask = 0
+
+[node name="Collision" type="CollisionShape2D" parent="Trigger"]
+visible = false
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 59.73 )
+texture = ExtResource( 2 )
+offset = Vector2( 2, -60.064 )

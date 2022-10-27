@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/trampoline.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/w1/bouncy_mushroom.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 46, 16 )
+
+[sub_resource type="Animation" id=2]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.2, 1.4, 1.6, 1.8, 2 ),
+"transitions": PoolRealArray( 0.554784, 2, 1.7411, 1, 1, 0.933033, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.11745, 0.238535 ), Vector2( 0.901061, 1.45842 ), Vector2( 1, 0.75 ), Vector2( 1.08372, 1.17989 ), Vector2( 1, 0.923678 ), Vector2( 1, 1 ) ]
+}
+
+[node name="Trampoline" type="Area2D"]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+offset = Vector2( 1.6335, -55.1422 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -75 )
+shape = SubResource( 1 )
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+playback_speed = 7.0
+anims/bounce = SubResource( 2 )

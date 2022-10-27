@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://environment/w1/enemies/cannon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://environment/w1/obstacles/pillar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://environment/w1/platforms/platform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://environment/w1/enemies/enemy.tscn" type="PackedScene" id=4]
+
+[sub_resource type="GDScript" id=1]
+resource_name = "CharacterTrigger"
+script/source = "extends Sprite
+
+var trigger = false
+
+func _ready():
+	$Area2D.add_to_group(assets.GROUP_CHARACTERS)
+
+func _process(delta):
+	if not trigger: return
+	global_position = get_global_mouse_position()
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			trigger = true
+		elif not event.is_pressed():
+			trigger = false
+"
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 30.0
+
+[node name="TestScene" type="Node2D"]
+
+[node name="Cannon" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1591.55, 100.707 )
+direction = -1
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -397.418, 679.708 )
+script = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="KinematicBody2D" parent="Sprite"]
+collision_layer = 2
+collision_mask = 2044
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
+shape = SubResource( 2 )
+
+[node name="Pillar" parent="." instance=ExtResource( 2 )]
+position = Vector2( 257.513, 994.061 )
+
+[node name="Platform" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1351.72, 980.27 )
+
+[node name="Platform3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 186.453, 1052.86 )
+
+[node name="Platform2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1422.8, 241.184 )
+
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1534.56, 862.999 )

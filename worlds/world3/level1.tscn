@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://environment/background/background.tscn" type="PackedScene" id=1]
-[ext_resource path="res://environment/background/parallax_background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://player/player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://player/camera.tscn" type="PackedScene" id=4]
-[ext_resource path="res://items/finalpoint.tscn" type="PackedScene" id=5]
+[ext_resource path="res://environment/w1/background/background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://environment/w1/background/parallax_background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://characters/character1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/camera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://items/level_objective.tscn" type="PackedScene" id=5]
+[ext_resource path="res://environment/w1/terrains/terrain.tscn" type="PackedScene" id=6]
+
+
+
+
 
 [node name="Level" type="Node2D"]
 
@@ -15,16 +20,12 @@
 [node name="Plants" type="Node" parent="."]
 
 [node name="Enemies" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Spikes" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Obstacles" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Platforms" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1000, 776.636 )
@@ -32,7 +33,27 @@ position = Vector2( 1000, 776.636 )
 [node name="Camera" parent="Player" instance=ExtResource( 4 )]
 
 [node name="FinalPoint" parent="." instance=ExtResource( 5 )]
-position = Vector2( 34250, -450 )
+position = Vector2( 2897.43, 403.962 )
 
 [node name="Terrains" type="Node" parent="."]
 
+[node name="Terrain" parent="Terrains" instance=ExtResource( 6 )]
+position = Vector2( 346.698, 1142.28 )
+
+[node name="Terrain2" parent="Terrains" instance=ExtResource( 6 )]
+position = Vector2( 846.674, 1142.28 )
+
+[node name="Terrain4" parent="Terrains" instance=ExtResource( 6 )]
+position = Vector2( 1346.65, 1142.28 )
+
+[node name="Terrain3" parent="Terrains" instance=ExtResource( 6 )]
+position = Vector2( 1846.63, 1142.28 )
+
+[node name="Terrain7" parent="Terrains" instance=ExtResource( 6 )]
+position = Vector2( 1951.14, 1059.77 )
+
+[node name="Terrain6" parent="Terrains" instance=ExtResource( 6 )]
+position = Vector2( 2342.95, 1142.28 )
+
+[node name="Terrain5" parent="Terrains" instance=ExtResource( 6 )]
+position = Vector2( 2842.93, 1142.28 )

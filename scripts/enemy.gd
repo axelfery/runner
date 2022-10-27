@@ -2,10 +2,10 @@ extends KinematicBody2D
 
 var velocity = Vector2()
 var floorNormal = Vector2(0, -1)
-export(int) var direction = -1
+export(int, -1, 1, 1) var direction = -1
 
 const GRAVITY = 90
-const SPEED = 200
+const SPEED = 150
 
 onready var bottom = $Bottom
 
@@ -30,15 +30,15 @@ func _physics_process(delta):
 		velocity.y = 0
 
 func onBodyEntered(body: KinematicBody2D)->void:
-	if(body.is_in_group(assets.groupPlayer)):
+	if(body.is_in_group(assets.GROUP_CHARACTERS)):
 		body.setState(body.States.HIT)
 		
 func onBodyTrigger(body: KinematicBody2D)->void:
-	if(body.is_in_group(assets.groupPlayer)):
+	if(body.is_in_group(assets.GROUP_CHARACTERS)):
 		$Trigger.disconnect("body_entered", self, "onBodyTrigger")
 		set_physics_process(true)
 		$Animation.play("strech")
 	
 func onBodyTriggerExit(body: KinematicBody2D)->void:
-	if(body.is_in_group(assets.groupPlayer)):
+	if(body.is_in_group(assets.GROUP_CHARACTERS)):
 		queue_free()

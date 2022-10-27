@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/font.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Label
+
+func _process(delta):
+	text = \"FPS: \" + str(Engine.get_frames_per_second()
+		) + \"   MEMORY: \" + str(OS.get_static_memory_usage()/1048576) + \" MB\"
+"
+
+[node name="FPS" type="Label"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -544.948
+margin_top = -100.968
+margin_right = 469.052
+margin_bottom = -10.9684
+custom_fonts/font = SubResource( 1 )
+text = "FPS"
+align = 1
+valign = 1
+script = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

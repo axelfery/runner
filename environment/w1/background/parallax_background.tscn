@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/images/w1/background/background.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/w1/background/backgrass.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/w1/background/bushes0.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/w1/background/bushes1.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/w1/background/bushes2.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/w1/background/bushes3.png" type="Texture" id=6]
+[ext_resource path="res://assets/images/w1/background/bushes4.png" type="Texture" id=7]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+layer = -9
+
+[node name="Back" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grasses" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 0 )
+motion_offset = Vector2( 0, -540 )
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="Grasses"]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="Grasses"]
+position = Vector2( 1920, 0 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Bushes0" type="ParallaxLayer" parent="."]
+visible = false
+motion_scale = Vector2( 0.15, 0 )
+motion_offset = Vector2( 1000, -540 )
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="Bushes0"]
+position = Vector2( 0, 160 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="Bushes0"]
+position = Vector2( 1920, 160 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Bushes1" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.2, 0 )
+motion_offset = Vector2( 0, -540 )
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="Bushes1"]
+position = Vector2( 0, 420 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="Bushes1"]
+position = Vector2( 1920, 420 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Bushes2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.25, 0 )
+motion_offset = Vector2( 0, -540 )
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="Bushes2"]
+position = Vector2( 0, 700 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="Bushes2"]
+position = Vector2( 1920, 700 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Bushes3" type="ParallaxLayer" parent="."]
+visible = false
+motion_scale = Vector2( 0.3, 0 )
+motion_offset = Vector2( 0, -540 )
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="Bushes3"]
+position = Vector2( -7.5896, -195.993 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="Bushes3"]
+position = Vector2( 1912.41, -195.993 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Bushes4" type="ParallaxLayer" parent="."]
+visible = false
+motion_scale = Vector2( 0.35, 0 )
+motion_offset = Vector2( 0, -540 )
+motion_mirroring = Vector2( 3840, 0 )
+
+[node name="Sprite" type="Sprite" parent="Bushes4"]
+position = Vector2( 0, -50 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="Bushes4"]
+position = Vector2( 1920, -50 )
+texture = ExtResource( 7 )
+centered = false

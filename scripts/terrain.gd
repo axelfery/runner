@@ -1,4 +1,8 @@
+tool
 extends StaticBody2D
 
-func _ready():
-	add_to_group(assets.groupTerrains)
+export(Texture) var texture = null setget setTexture
+
+func setTexture(newTexture):
+	texture = newTexture
+	$Sprite.texture = texture
