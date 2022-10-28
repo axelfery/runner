@@ -1,2 +1,2 @@
-# Runner Game
-A simple running game with Godot Engine
+# Running Game
+A simple running game demo made with Godot Engine
